@@ -19,6 +19,7 @@
                 </div>
             </div>
             <button type="button" class="btn btn-primary mt-3" onclick="window.location='plans'">Shopping</button>
+            <button type="button" class="btn btn-primary mt-3" onclick="window.location='chat'">Chat</button>
         </div>
     </div>
 </div>

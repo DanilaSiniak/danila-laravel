@@ -16,6 +16,8 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <script src="{{ mix('/js/app.js') }}" defer></script>
 </head>
 <body>
     <div id="app">
@@ -73,9 +75,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <div id="app">
             @yield('content')
-        </main>
+        </div>
     </div>
 </body>
 </html>
