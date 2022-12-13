@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Pusher from "pusher-js";
+
 window._ = _;
 
 /**
