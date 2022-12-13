@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> Dashboard </div>
+                <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <b> {{ __('You are logged in!') }} </b><br>
-                        {{ __('You can start shopping') }} <br>
+                    {{ __('You are logged in!', ) }} <br>
+                    Hello, {{auth()->user()->name}}
                 </div>
             </div>
             <button type="button" class="btn btn-primary mt-3" onclick="window.location='plans'">Shopping</button>

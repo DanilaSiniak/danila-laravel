@@ -25,6 +25,7 @@
 
 <script>
 import {reactive} from 'vue';
+import useChat from "../compasables/chat";
 export default {
     name: 'ChatForm',
     setup() {

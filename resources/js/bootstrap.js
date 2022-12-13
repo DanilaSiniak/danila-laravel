@@ -1,7 +1,6 @@
 import _ from 'lodash';
+import Pusher from "pusher-js";
 window._ = _;
-
-import 'bootstrap';
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -21,15 +20,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 import Echo from 'laravel-echo';
-import Pusher from 'pusher-js';
 
-window.Pusher = Pusher;
+window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: import.meta.env.VITE_ABLY_PUBLIC_KEY,
-    wsHost: 'realtime-pusher.ably.io',
-    wsPort: 443,
-    disableStats: true,
-    encrypted: true,
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    forceTLS: true
 });

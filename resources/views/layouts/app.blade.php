@@ -13,11 +13,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
-    <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+
 </head>
 <body>
     <div id="app">
@@ -75,9 +73,9 @@
             </div>
         </nav>
 
-        <div id="app">
+        <main class="py-4">
             @yield('content')
-        </div>
+        </main>
     </div>
 </body>
 </html>
