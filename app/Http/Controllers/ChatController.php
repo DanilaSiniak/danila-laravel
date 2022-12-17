@@ -9,7 +9,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
-class ChatController extends Controller
+class   ChatController extends Controller
 {
     /**
      * Create a new controller instance.

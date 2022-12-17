@@ -8,7 +8,7 @@
                 <header class="text-center mb-5 text-white">
                     <div class="row">
                         <div class="col-lg-12 mx-auto">
-                            <h1>Test app: Playstation subscription plans (Stripe, Cashier)</h1>
+                            <h1 class="text-dark">Test app: Playstation subscription plans (Stripe, Cashier)</h1>
                         </div>
                     </div>
                 </header>
