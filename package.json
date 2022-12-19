@@ -5,7 +5,6 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@popperjs/core": "^2.11.6",
         "@vitejs/plugin-vue": "^3.2.0",
         "axios": "^0.27",
         "bootstrap": "^5.2.3",
@@ -17,15 +16,9 @@
         "pusher-js": "^5.1.1",
         "sass": "^1.56.1",
         "sass-loader": "^13.2.0",
-        "popper.js": "^1.16.1",
-        "resolve-url-loader": "^5.0.0",
-        "@ckeditor/ckeditor5-vue": "^4.0.1",
-        "cross-env": "^7.0.3",
         "vite": "^3.0.0",
         "vue": "^3.2.37",
         "pusher": "^5.1.2",
-        "tailwindcss": "^3.2.4",
-        "vite-plugin-vue2": "^2.0.2",
         "vue-template-compiler": "^2.7.14"
     }
 

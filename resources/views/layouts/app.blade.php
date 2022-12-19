@@ -55,6 +55,19 @@
                         @endguest
                     </ul>
                 </div>
+                @auth()
+                <span class="nav-item">
+                    <a class="nav-item" href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                       document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </a>
+                </span>
+                @endauth
             </div>
         </nav>
 
