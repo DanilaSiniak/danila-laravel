@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\SearchMessagesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
@@ -22,18 +23,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::middleware("auth")->group(function () {
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/plans', function () {
-    return view('plans');
-});
-
-Route::middleware("auth")->group(function (){
-    Route::get('plans', [PlanController::class, 'index'])->name('plans.home');
-    Route::get('plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
-    Route::post('subscription', [PlanController::class, 'subscription'])->name("subscription.create");
+    Route::get('/plans', [PlanController::class, 'index'])->name('plans.home');
+    Route::get('/plans/{plan}', [PlanController::class, 'show'])->name("plans.show");
+    Route::post('/subscription', [PlanController::class, 'subscription'])->name("subscription.create");
 
     Route::get('/chat',[ChatController::class, 'index'])->name('chat.home');
     Route::get('/messages',[ChatController::class, 'messages'])->name('chat.messages');
     Route::post('/send',[ChatController::class, 'send'])->name('chat.send');
+
+    Route::get('/search', SearchMessagesController::class);
 });

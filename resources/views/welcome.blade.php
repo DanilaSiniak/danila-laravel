@@ -43,7 +43,6 @@
                 @guest()
                     Please sign in to your account.
                 @endguest
-
             </div>
         </div>
     </body>

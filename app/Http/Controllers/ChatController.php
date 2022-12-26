@@ -21,6 +21,19 @@ class   ChatController extends Controller
         $this->middleware('auth');
     }
 
+    public function __invoke(Request $request)
+    {
+        $results = null;
+
+        if ($query = $request->get('message')) {
+            $results = Message::search($query)->get();
+        }
+
+        return view('searchMessage', [
+            'results' => $results,
+        ]);
+    }
+
     /**
      * Show the application chat.
      *
@@ -46,5 +59,16 @@ class   ChatController extends Controller
 
         broadcast(new MessageSent($messageFormRequest->user(), $message));
         return $message;
+    }
+
+    public function getMessage(Request $request): ?Collection
+    {
+        $results = null;
+
+        if ($query = $request->get('message')) {
+            $results = Message::search($query)->get();
+        }
+
+        return $results;
     }
 }

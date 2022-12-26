@@ -19,9 +19,7 @@
                             <div class="bg-white p-5 rounded-lg shadow">
                                 <h1 class="h6 text-uppercase font-weight-bold mb-4">{{ $plan->name }}</h1>
                                 <h2 class="h1 font-weight-bold">${{ $plan->price }}<span class="text-small font-weight-normal ml-2">/ month</span></h2>
-
                                 <div class="custom-separator my-4 mx-auto bg-primary"></div>
-
                                 <ul class="list-unstyled my-5 text-small text-left font-weight-normal">
                                     <li class="mb-3">
                                         <i class="fa fa-check mr-2 text-primary"></i> Lorem ipsum dolor sit amet</li>
@@ -38,14 +36,12 @@
                                         <del>Sed ut perspiciatis</del>
                                     </li>
                                 </ul>
-                                <a href="{{route('plans.show', $plan->slug)}}" class="btn btn-primary btn-block shadow rounded-pill">Buy Now</a>
+                                <a href="{{ route('plans.show', $plan->slug) }}" class="btn btn-primary btn-block shadow rounded-pill">Buy Now</a>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-
         </section>
-
     </div>
 @endsection

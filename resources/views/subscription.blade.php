@@ -48,19 +48,14 @@
     <script src="https://js.stripe.com/v3/"></script>
     <script>
         const stripe = Stripe('{{ env('STRIPE_KEY') }}')
-
         const elements = stripe.elements()
         const cardElement = elements.create('card')
-
         cardElement.mount('#card-element')
-
         const form = document.getElementById('payment-form')
         const cardBtn = document.getElementById('card-button')
         const cardHolderName = document.getElementById('card-holder-name')
-
         form.addEventListener('submit', async (e) => {
             e.preventDefault()
-
             cardBtn.disabled = true
             const { setupIntent, error } = await stripe.confirmCardSetup(
                 cardBtn.dataset.secret, {
@@ -72,7 +67,6 @@
                     }
                 }
             )
-
             if(error) {
                 cardBtn.disable = false
             } else {
