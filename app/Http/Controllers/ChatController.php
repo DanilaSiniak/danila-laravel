@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Events\MessageSent;
 use App\Http\Requests\MessageFormRequest;
 use App\Models\Message;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
-class   ChatController extends Controller
+class ChatController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,19 +24,6 @@ class   ChatController extends Controller
         $this->middleware('auth');
     }
 
-    public function __invoke(Request $request)
-    {
-        $results = null;
-
-        if ($query = $request->get('message')) {
-            $results = Message::search($query)->get();
-        }
-
-        return view('searchMessage', [
-            'results' => $results,
-        ]);
-    }
-
     /**
      * Show the application chat.
      *
@@ -42,6 +32,19 @@ class   ChatController extends Controller
     public function index(): Renderable
     {
         return view('chat');
+    }
+
+    public function getMessage(Request $request): Factory|View|Application
+    {
+        $results = null;
+
+        if ($query = $request->get('message')) {
+            $results = Message::search($query)->get();
+        }
+
+        return view('chat', [
+            'results' => $results,
+        ]);
     }
 
     public function messages(): Collection|array
@@ -59,16 +62,5 @@ class   ChatController extends Controller
 
         broadcast(new MessageSent($messageFormRequest->user(), $message));
         return $message;
-    }
-
-    public function getMessage(Request $request): ?Collection
-    {
-        $results = null;
-
-        if ($query = $request->get('message')) {
-            $results = Message::search($query)->get();
-        }
-
-        return $results;
     }
 }

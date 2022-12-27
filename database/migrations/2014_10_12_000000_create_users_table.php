@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->boolean('isManager')->default(0);
             $table->timestamp('email_verified_at')->nullable();
+            $table->enum('user_status', ['Offline', 'Online']);
+            $table->string('user_image');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

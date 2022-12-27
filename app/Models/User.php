@@ -25,8 +25,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'isManager',
-        'last_seen'
+        'last_seen',
+        'user_status',
+        'user_image'
     ];
 
     /**
@@ -47,12 +48,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    // is online user
-    function isOnline(): bool
-    {
-        return Cache::has('user-is-online-' . $this->id);
-    }
 
     public function messages(): HasMany
     {

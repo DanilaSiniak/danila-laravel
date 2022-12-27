@@ -15,6 +15,7 @@
                                 <h1 class="text-lg font-semibold"> User name: {{ $result->user->name }}</h1>
                                 <h2 class="text-lg"> Message: {{$result->message}}</h2>
                                 <p> Time: {{ $result->created_at}}</p>
+
                             </div>
                         @endforeach
                     @else
