@@ -36,7 +36,13 @@
                 </div>
             @endif
             <div>
-                <h1>Please, Log in to your account</h1>
+                @auth()
+                    You're signed in.
+                @endauth
+
+                @guest()
+                    Please sign in to your account.
+                @endguest
             </div>
         </div>
     </body>
